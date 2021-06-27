@@ -1,0 +1,28 @@
+const { Model, DataTypes } = require('sequelize')
+const bcrypt = require('bcrypt')
+
+class User extends Model {
+  static init(sequelize) {
+    super.init(
+      {
+        nome: DataTypes.STRING,
+        email: DataTypes.STRING,
+        cpf: DataTypes.STRING,
+        acesso: DataTypes.INTEGER,
+        nivel: DataTypes.INTEGER,
+        senha: DataTypes.STRING,
+      },
+      {
+        sequelize,
+      }
+    )
+    this.addHook('beforeSave', async (client) => {
+      if (client.senha) {
+        client.senha = await bcrypt.hash(client.senha, 8)
+      }
+      return this
+    })
+  }
+}
+
+module.exports = User
