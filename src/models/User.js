@@ -20,8 +20,11 @@ class User extends Model {
       if (client.senha) {
         client.senha = await bcrypt.hash(client.senha, 8)
       }
-      return this
     })
+    return this
+  }
+  checkPassword(senha) {
+    return bcrypt.compare(senha, this.senha)
   }
 }
 
