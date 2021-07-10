@@ -32,21 +32,21 @@ module.exports = {
   },
   async store(req, res) {
     try {
-      const data = req.body
+      const { nome, email, cpf, acesso, nivel, senha } = req.body
 
       const userExist = await User.findOne({
-        where: Sequelize.or({ email: data.email }, { cpf: data.cpf }),
+        where: Sequelize.or({ email }, { cpf }),
       })
       if (userExist) {
-        if (userExist.email === data.email) {
+        if (userExist.email === email) {
           return res.status(400).json({ error: 'E-mail já cadastrado' })
         }
         return res.status(400).json({ error: 'CPF já cadastrado' })
       }
-      const user = await User.create(data)
+      const user = await User.create({ nome, email, cpf, acesso, nivel, senha })
       return res.json(user)
     } catch (err) {
-      return res.json({ error: 'Não foi possivel criar o usuario' })
+      return res.json(err)
     }
   },
   async update(req, res) {

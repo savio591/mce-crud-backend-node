@@ -13,9 +13,6 @@ module.exports = {
       if (!userExist) {
         return res.status(401).json({ error: 'Usuario não encontrado' })
       }
-      if (!userExist.acesso === 1) {
-        return res.status(401).json({ error: 'Usuario está desativado' })
-      }
       if (!(await userExist.checkPassword(senha))) {
         return res.status(401).json({ error: 'Senha não é valida' })
       }
@@ -46,6 +43,7 @@ module.exports = {
         ),
       })
     } catch (err) {
+      console.log(err)
       return res.status(400).json({ error: 'Ops...Ocorreu um erro' })
     }
   },

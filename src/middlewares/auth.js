@@ -14,9 +14,9 @@ module.exports = {
 
     try {
       const decoded = await promisify(jwt.verify)(token, authConfig.secret)
-      if (decoded.acesso == 0) {
-        return res.status(400).json({ error: 'Usuario foi desativado!' })
-      }
+      //if (decoded.acesso == 0) {
+        //return res.status(400).json({ error: 'Usuario foi desativado!' })
+      //}
       req.user = decoded
       return next()
     } catch (err) {
