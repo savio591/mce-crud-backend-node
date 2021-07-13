@@ -1,0 +1,6 @@
+{
+  "name": "MCE Onboarding backend",
+  "description": "A Node.js Express Server",
+  "keywords": ["node", "express"],
+  "image": "heroku/nodejs"
+}

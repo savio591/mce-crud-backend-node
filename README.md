@@ -12,5 +12,5 @@ Os alunos devem criar uma plataforma simples, onde o usuário deverá criar sua 
 
 ### 1. Sistema de login
 
-* O usuário(cadastrado) da plataforma deve ser capaz de realizar login na plataforma inserindo nome e senha que o mesmo cadastrou no sistema.
-* Após realizar o login, o usuário deve ser direcionado para seu perfil, onde poderá modificar seus dados cadastrais.
+-   O usuário(cadastrado) da plataforma deve ser capaz de realizar login na plataforma inserindo nome e senha que o mesmo cadastrou no sistema.
+-   Após realizar o login, o usuário deve ser direcionado para seu perfil, onde poderá modificar seus dados cadastrais.
